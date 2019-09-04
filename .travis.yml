@@ -1,0 +1,9 @@
+sodo: required
+services:
+  - docker
+  
+before_install:
+  - docker build -t rolfzbinden/docker-react -f Dockerfile.dev . 
+
+Script:
+  - docker run -e CI=true rolfzbinden/docker-react npm run test
